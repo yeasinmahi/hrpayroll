@@ -19,11 +19,22 @@ namespace HrPayroll
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/myScript").Include());
+            bundles.Add(new ScriptBundle("~/bundles/myScript").Include(
+                "~/Scripts/metisMenu.min.js",
+                "~/Scripts/raphael.min.js",
+                "~/Scripts/morris.min.js",
+                "~/Scripts/morris-data.js",
+                "~/Scripts/sb-admin-2.js"
+                ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/metisMenu.min.css",
+                      "~/Content/sb-admin-2.css",
+                      "~/Content/morris.css",
+                      "~/Content/font-awesome.min.css"
+                      ));
         }
     }
 }
