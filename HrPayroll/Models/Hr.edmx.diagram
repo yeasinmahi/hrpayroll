@@ -8,8 +8,8 @@
         <EntityTypeShape EntityType="HrModel.Employee" Width="2.375" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HrModel.Department" Width="1.5" PointX="4.375" PointY="1" />
         <EntityTypeShape EntityType="HrModel.Designation" Width="1.5" PointX="6.625" PointY="0.875" />
-        <AssociationConnector Association="HrModel.FK_Designation_Department" />
-      </Diagram>
+        <AssociationConnector Association="HrModel.FK_Designation_Designation" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

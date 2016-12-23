@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HrPayroll
+namespace HrPayroll.Models
 {
     using System;
     using System.Data.Entity;

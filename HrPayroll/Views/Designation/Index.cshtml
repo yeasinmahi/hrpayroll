@@ -1,0 +1,51 @@
+﻿@model IEnumerable<HrPayroll.Models.Designation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DesId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DesignationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartmentCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DesId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DesignationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartmentCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DesignationCode }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DesignationCode }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DesignationCode })
+        </td>
+    </tr>
+}
+
+</table>

@@ -7,22 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HrPayroll
+namespace HrPayroll.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Department
+    public partial class Designation
     {
-        public Department()
-        {
-            this.Designations = new HashSet<Designation>();
-        }
-    
-        public int DeptId { get; set; }
+        public int DesId { get; set; }
+        public string DesignationCode { get; set; }
+        public string DesignationName { get; set; }
         public string DepartmentCode { get; set; }
-        public string DepartmentName { get; set; }
     
-        public virtual ICollection<Designation> Designations { get; set; }
+        public virtual Department Department { get; set; }
     }
 }

@@ -7,20 +7,20 @@
     <Schema Namespace="HrModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Department">
           <Key>
-            <PropertyRef Name="DeptId" />
+            <PropertyRef Name="DepartmentCode" />
           </Key>
           <Property Name="DeptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DepartmentCode" Type="varchar" MaxLength="50" />
-          <Property Name="DepartmentName" Type="varchar" MaxLength="50" />
+          <Property Name="DepartmentCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepartmentName" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Designation">
           <Key>
-            <PropertyRef Name="DesId" />
+            <PropertyRef Name="DesignationCode" />
           </Key>
           <Property Name="DesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DesignationName" Type="varchar" MaxLength="50" />
-          <Property Name="DesignationCode" Type="varchar" MaxLength="50" />
-          <Property Name="DepId" Type="int" Nullable="false" />
+          <Property Name="DesignationCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DesignationName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DepartmentCode" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -35,15 +35,15 @@
           <Property Name="PermanentAddress" Type="varchar" MaxLength="200" />
           <Property Name="NationalId" Type="varchar" MaxLength="20" />
         </EntityType>
-        <Association Name="FK_Designation_Department">
+        <Association Name="FK_Designation_Designation">
           <End Role="Department" Type="Self.Department" Multiplicity="1" />
-          <End Role="Designation" Type="Self.Designation" Multiplicity="*" />
+          <End Role="Designation" Type="Self.Designation" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Department">
-              <PropertyRef Name="DeptId" />
+              <PropertyRef Name="DepartmentCode" />
             </Principal>
             <Dependent Role="Designation">
-              <PropertyRef Name="DepId" />
+              <PropertyRef Name="DesignationCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -51,7 +51,7 @@
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Designation" EntityType="Self.Designation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Designation_Department" Association="Self.FK_Designation_Department">
+          <AssociationSet Name="FK_Designation_Designation" Association="Self.FK_Designation_Designation">
             <End Role="Department" EntitySet="Department" />
             <End Role="Designation" EntitySet="Designation" />
           </AssociationSet>
@@ -77,43 +77,43 @@
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="Departments" EntityType="HrModel.Department" />
           <EntitySet Name="Designations" EntityType="HrModel.Designation" />
-          <AssociationSet Name="FK_Designation_Department" Association="HrModel.FK_Designation_Department">
+          <AssociationSet Name="FK_Designation_Designation" Association="HrModel.FK_Designation_Designation">
             <End Role="Department" EntitySet="Departments" />
             <End Role="Designation" EntitySet="Designations" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Department">
           <Key>
-            <PropertyRef Name="DeptId" />
+            <PropertyRef Name="DepartmentCode" />
           </Key>
           <Property Name="DeptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DepartmentCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Designations" Relationship="HrModel.FK_Designation_Department" FromRole="Department" ToRole="Designation" />
+          <Property Name="DepartmentCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Designation" Relationship="HrModel.FK_Designation_Designation" FromRole="Department" ToRole="Designation" />
         </EntityType>
         <EntityType Name="Designation">
           <Key>
-            <PropertyRef Name="DesId" />
+            <PropertyRef Name="DesignationCode" />
           </Key>
           <Property Name="DesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DesignationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DesignationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DepId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Department" Relationship="HrModel.FK_Designation_Department" FromRole="Designation" ToRole="Department" />
+          <Property Name="DesignationCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DesignationName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Department" Relationship="HrModel.FK_Designation_Designation" FromRole="Designation" ToRole="Department" />
         </EntityType>
-        <Association Name="FK_Designation_Department">
+        <Association Name="FK_Designation_Designation">
           <End Type="HrModel.Department" Role="Department" Multiplicity="1" />
-          <End Type="HrModel.Designation" Role="Designation" Multiplicity="*" />
+          <End Type="HrModel.Designation" Role="Designation" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Department">
-              <PropertyRef Name="DeptId" />
+              <PropertyRef Name="DepartmentCode" />
             </Principal>
             <Dependent Role="Designation">
-              <PropertyRef Name="DepId" />
+              <PropertyRef Name="DesignationCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -145,9 +145,9 @@
           <EntitySetMapping Name="Designations">
             <EntityTypeMapping TypeName="HrModel.Designation">
               <MappingFragment StoreEntitySet="Designation">
-                <ScalarProperty Name="DepId" ColumnName="DepId" />
-                <ScalarProperty Name="DesignationCode" ColumnName="DesignationCode" />
+                <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
                 <ScalarProperty Name="DesignationName" ColumnName="DesignationName" />
+                <ScalarProperty Name="DesignationCode" ColumnName="DesignationCode" />
                 <ScalarProperty Name="DesId" ColumnName="DesId" />
               </MappingFragment>
             </EntityTypeMapping>

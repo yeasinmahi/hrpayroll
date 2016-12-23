@@ -7,18 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HrPayroll
+namespace HrPayroll.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Designation
+    public partial class Employee
     {
-        public int DesId { get; set; }
-        public string DesignationName { get; set; }
-        public string DesignationCode { get; set; }
-        public int DepId { get; set; }
-    
-        public virtual Department Department { get; set; }
+        public int EmpId { get; set; }
+        public string FName { get; set; }
+        public string LName { get; set; }
+        public Nullable<System.DateTime> DateOfBirth { get; set; }
+        public Nullable<System.DateTime> DateOfJoin { get; set; }
+        public string PresentAddress { get; set; }
+        public string PermanentAddress { get; set; }
+        public string NationalId { get; set; }
     }
 }

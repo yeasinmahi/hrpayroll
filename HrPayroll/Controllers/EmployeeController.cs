@@ -2,6 +2,7 @@
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web.Mvc;
+using HrPayroll.Models;
 
 namespace HrPayroll.Controllers
 {

@@ -119,38 +119,39 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Utitlity\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\DesignationController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Department.cs">
+    <Compile Include="Models\Department.cs">
       <DependentUpon>Hr.tt</DependentUpon>
     </Compile>
-    <Compile Include="Designation.cs">
+    <Compile Include="Models\Designation.cs">
       <DependentUpon>Hr.tt</DependentUpon>
     </Compile>
-    <Compile Include="Employee.cs">
+    <Compile Include="Models\Employee.cs">
       <DependentUpon>Hr.tt</DependentUpon>
     </Compile>
-    <Compile Include="Hr.Context.cs">
+    <Compile Include="Models\Hr.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Hr.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Hr.cs">
+    <Compile Include="Models\Hr.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Hr.tt</DependentUpon>
     </Compile>
-    <Compile Include="Hr.Designer.cs">
+    <Compile Include="Models\Hr.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Hr.edmx</DependentUpon>
@@ -181,19 +182,19 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <EntityDeploy Include="Hr.edmx">
+    <EntityDeploy Include="Models\Hr.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Hr.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Hr.Context.tt">
+    <Content Include="Models\Hr.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Hr.edmx</DependentUpon>
       <LastGenOutput>Hr.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Hr.edmx.diagram">
+    <Content Include="Models\Hr.edmx.diagram">
       <DependentUpon>Hr.edmx</DependentUpon>
     </Content>
-    <Content Include="Hr.tt">
+    <Content Include="Models\Hr.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Hr.edmx</DependentUpon>
       <LastGenOutput>Hr.cs</LastGenOutput>
@@ -244,6 +245,12 @@
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Employee\Delete.cshtml" />
     <Content Include="Views\Employee\Get.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Designation\Index.cshtml" />
+    <Content Include="Views\Designation\Create.cshtml" />
+    <Content Include="Views\Designation\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
