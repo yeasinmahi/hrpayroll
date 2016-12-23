@@ -33,9 +33,9 @@ namespace HrPayroll.Controllers
             hrEntities.SaveChanges();
             return View(department);
         }
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            Department department = hrEntities.Departments.Where(x => x.DeptId.Equals(id)).ToList().FirstOrDefault();
+            Department department = hrEntities.Departments.Where(x => x.DepartmentCode.Equals(id)).ToList().FirstOrDefault();
             return View(department);
         }
         [HttpPost]
@@ -49,9 +49,9 @@ namespace HrPayroll.Controllers
             }
             return View(department);
         }
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
-            Department department = hrEntities.Departments.Where(x => x.DeptId.Equals(id)).ToList().FirstOrDefault();
+            Department department = hrEntities.Departments.Where(x => x.DepartmentCode.Equals(id)).ToList().FirstOrDefault();
             hrEntities.Departments.Remove(department);
             return RedirectToAction("Index");
         }

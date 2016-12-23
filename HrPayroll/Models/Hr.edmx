@@ -37,13 +37,13 @@
         </EntityType>
         <Association Name="FK_Designation_Designation">
           <End Role="Department" Type="Self.Department" Multiplicity="1" />
-          <End Role="Designation" Type="Self.Designation" Multiplicity="0..1" />
+          <End Role="Designation" Type="Self.Designation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Department">
               <PropertyRef Name="DepartmentCode" />
             </Principal>
             <Dependent Role="Designation">
-              <PropertyRef Name="DesignationCode" />
+              <PropertyRef Name="DepartmentCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -89,7 +89,7 @@
           <Property Name="DeptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DepartmentCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Designation" Relationship="HrModel.FK_Designation_Designation" FromRole="Department" ToRole="Designation" />
+          <NavigationProperty Name="Designations" Relationship="HrModel.FK_Designation_Designation" FromRole="Department" ToRole="Designation" />
         </EntityType>
         <EntityType Name="Designation">
           <Key>
@@ -103,13 +103,13 @@
         </EntityType>
         <Association Name="FK_Designation_Designation">
           <End Type="HrModel.Department" Role="Department" Multiplicity="1" />
-          <End Type="HrModel.Designation" Role="Designation" Multiplicity="0..1" />
+          <End Type="HrModel.Designation" Role="Designation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Department">
               <PropertyRef Name="DepartmentCode" />
             </Principal>
             <Dependent Role="Designation">
-              <PropertyRef Name="DesignationCode" />
+              <PropertyRef Name="DepartmentCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

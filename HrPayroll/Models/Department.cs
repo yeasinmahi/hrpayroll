@@ -14,10 +14,15 @@ namespace HrPayroll.Models
     
     public partial class Department
     {
+        public Department()
+        {
+            this.Designations = new HashSet<Designation>();
+        }
+    
         public int DeptId { get; set; }
         public string DepartmentCode { get; set; }
         public string DepartmentName { get; set; }
     
-        public virtual Designation Designation { get; set; }
+        public virtual ICollection<Designation> Designations { get; set; }
     }
 }

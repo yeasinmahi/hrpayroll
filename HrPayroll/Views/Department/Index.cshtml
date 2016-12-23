@@ -15,10 +15,10 @@
             @Html.DisplayNameFor(model => model.DeptId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DepartmentName)
+            @Html.DisplayNameFor(model => model.DepartmentCode)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Designation.DesignationName)
+            @Html.DisplayNameFor(model => model.DepartmentName)
         </th>
         <th></th>
     </tr>
@@ -29,14 +29,13 @@
             @Html.DisplayFor(modelItem => item.DeptId)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.DepartmentCode)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.DepartmentName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Designation.DesignationName)
-        </td>
-        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.DepartmentCode }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DepartmentCode }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.DepartmentCode })
         </td>
     </tr>

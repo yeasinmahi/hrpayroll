@@ -20,6 +20,8 @@ namespace HrPayroll.Controllers
         }
         public ActionResult Create()
         {
+            List<Department> departments = hrEntities.Departments.ToList();
+            ViewBag.DepartmentCode = departments;
             return View();
         }
         [HttpPost]
@@ -35,9 +37,9 @@ namespace HrPayroll.Controllers
             hrEntities.SaveChanges();
             return View(designation);
         }
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            Designation designation = hrEntities.Designations.Where(x => x.DesId.Equals(id)).ToList().FirstOrDefault();
+            Designation designation = hrEntities.Designations.Where(x => x.DesignationCode.Equals(id)).ToList().FirstOrDefault();
             return View(designation); 
         }
         [HttpPost]
@@ -51,9 +53,9 @@ namespace HrPayroll.Controllers
             }
             return View(designation);
         }
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
-            Designation designation = hrEntities.Designations.Where(x => x.DesId.Equals(id)).ToList().FirstOrDefault();
+            Designation designation = hrEntities.Designations.Where(x => x.DesignationCode.Equals(id)).ToList().FirstOrDefault();
             hrEntities.Designations.Remove(designation);
             return RedirectToAction("Index");
         }
